@@ -1,0 +1,86 @@
+<!--
+title: Passport — Comuna
+description: Every check-in earns a stamp. Collect neighborhoods, unlock patches and climb the monthly leaderboard in your Comuna passport.
+nav: passport
+-->
+<section class="screen" style="padding-top:40px">
+  <div class="wrap cols top">
+    <div>
+      <div class="passhead"><h1 class="h1" style="margin:0">Passport</h1><img src="{{root}}assets/patches/pennant.webp" alt="Comuna Events pennant"></div>
+      <p class="lede">Your passport fills up as you go out. Check in at a place and it's stamped. Explore a new neighborhood and you get its stamp too.</p>
+
+      <div class="passcover" style="margin-top:24px">
+        <span class="seal" aria-hidden="true"><svg width="150" height="150" viewBox="-75 -75 150 150"><circle r="70" fill="none" stroke="#F3E7D1" stroke-width="10"/><circle r="32" fill="none" stroke="#F3E7D1" stroke-width="8"/><circle r="11" fill="#F3E7D1"/></svg></span>
+        <p class="k">You · Los Angeles</p>
+        <p class="bigc">5 places, 3 neighborhoods</p>
+        <div class="bar"><i style="width:38%"></i></div>
+        <div class="passstats"><div><b>2</b>patches</div><div><b>7</b>check-ins</div><div><b>820</b>points this month</div></div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Passport pages">
+        <button type="button" role="tab" id="tab-hoods" aria-controls="pg-hoods" aria-selected="true">Neighborhoods 3</button>
+        <button type="button" role="tab" id="tab-places" aria-controls="pg-places" aria-selected="false" tabindex="-1">Places 5</button>
+      </div>
+      <div class="page" id="pg-hoods" role="tabpanel" aria-labelledby="tab-hoods">
+        <div class="ph"><b>Neighborhoods</b><span>a stamp for every hood you explore</span></div>
+        <div class="pagegrid">
+          <div class="slot"><img src="{{root}}assets/stamps/silver-lake.png" alt="Silver Lake stamp" style="transform:rotate(-7deg)"></div>
+          <div class="slot"><img src="{{root}}assets/stamps/echo-park.png" alt="Echo Park stamp" style="transform:rotate(5deg)"></div>
+          <div class="slot"><img src="{{root}}assets/stamps/santa-monica.png" alt="Santa Monica stamp" style="transform:rotate(-2deg)"></div>
+          <div class="slot"><div class="ghost-stamp">next stamp?</div></div>
+          <div class="slot"><img class="dim" src="{{root}}assets/stamps/los-feliz.png" alt="Los Feliz, not yet stamped"></div>
+          <div class="slot"><img class="dim" src="{{root}}assets/stamps/venice.png" alt="Venice, not yet stamped"></div>
+          <div class="slot"><img class="dim" src="{{root}}assets/stamps/downtown.png" alt="Downtown, not yet stamped"></div>
+          <div class="slot"><img class="dim" src="{{root}}assets/stamps/west-hollywood.png" alt="West Hollywood, not yet stamped"></div>
+          <div class="slot"><img class="dim" src="{{root}}assets/stamps/culver-city.png" alt="Culver City, not yet stamped"></div>
+        </div>
+        <p class="pagenote">3 hoods stamped</p>
+      </div>
+      <div class="page" id="pg-places" role="tabpanel" aria-labelledby="tab-places" hidden>
+        <div class="ph"><b>Places</b><span>a stamp for every spot you check in</span></div>
+        <div class="kinds"><span class="on" data-catdot="shows" data-size="30"></span><span class="on" data-catdot="food" data-size="30"></span><span data-catdot="active" data-size="30"></span><span class="on" data-catdot="classes" data-size="30"></span><b>3 of 4 kinds</b></div>
+        <div class="pagegrid two">
+          <div class="slot"><div class="placestamp" style="color:var(--blue)">Los Globos<small>Silver Lake</small></div></div>
+          <div class="slot"><div class="placestamp" style="color:var(--red);transform:rotate(2deg)">Red Lion Tavern<small>Silver Lake</small></div></div>
+          <div class="slot"><div class="placestamp" style="color:#9A7A22;transform:rotate(-1deg)">33 Taps<small>Silver Lake</small></div></div>
+          <div class="slot"><div class="placestamp" style="color:var(--green);transform:rotate(3deg)">Echo Park Lake<small>Echo Park</small></div></div>
+          <div class="slot"><div class="placestamp" style="color:var(--blue);transform:rotate(-4deg)">Santa Monica Pier<small>Santa Monica</small></div></div>
+          <div class="slot"><div class="ghost-rect">your next spot?</div></div>
+        </div>
+        <p class="pagenote">5 places stamped</p>
+      </div>
+      <p class="demo-tag">An example passport. Yours starts empty and fills up as you go.</p>
+    </div>
+
+    <div>
+      <h2 class="h2" style="margin-top:8px">Patches</h2>
+      <div class="patches" style="flex-wrap:wrap;overflow:visible">
+        <div class="patch"><img src="{{root}}assets/patches/first-stamp.webp" alt=""><b>FIRST STAMP</b>WELCOME</div>
+        <div class="patch"><img src="{{root}}assets/patches/three-hoods.webp" alt=""><b>THREE HOODS</b>EXPLORER</div>
+        <div class="patch"><img src="{{root}}assets/patches/regular.webp" alt=""><b>REGULAR</b>5 VISITS, 1 PLACE</div>
+        <div class="patch"><img src="{{root}}assets/patches/tried-everything.webp" alt=""><b>ALL 13 KINDS</b>TRIED EVERYTHING</div>
+        <div class="patch"><img src="{{root}}assets/patches/coast-to-lake.webp" alt=""><b>COAST TO LAKE</b>SANTA MONICA</div>
+        <div class="patch"><img src="{{root}}assets/patches/scout.webp" alt=""><b>SCOUT</b>3 EVENTS ADDED</div>
+      </div>
+
+      <h2 class="h2">How points work</h2>
+      <div class="kitpts"><span>Check in at an event</span><b>+100</b></div>
+      <div class="kitpts"><span>Your first time at a new place</span><b>+50</b></div>
+      <div class="kitpts"><span>Add an event to the map</span><b>+25</b></div>
+      <div class="kitpts"><span>Save a plan <small class="sub" style="font-size:12.5px">(up to 5 a day)</small></span><b>+10</b></div>
+      <div class="kitpts"><span>Rate a place after you go</span><b>+10</b></div>
+
+      <h2 class="h2">Top 5 explorers</h2>
+      <p class="note" style="margin:-4px 0 10px">Top 5 at the end of the month win gift cards to their favorite spots!</p>
+      <div class="lb">
+        <div class="lbrow"><span class="r">1</span><span class="avatar">M</span><span>Maya R.</span><b>1,240</b></div>
+        <div class="lbrow"><span class="r">2</span><span class="avatar" style="background:var(--blue);color:var(--paper)">J</span><span>Jonah P.</span><b>1,105</b></div>
+        <div class="lbrow"><span class="r">3</span><span class="avatar" style="background:var(--red);color:var(--paper)">A</span><span>Ari L.</span><b>980</b></div>
+        <div class="lbrow me"><span class="r">4</span><span class="avatar" style="background:var(--green);color:var(--paper)">Y</span><span>You</span><b>820</b></div>
+        <div class="lbrow"><span class="r">5</span><span class="avatar">S</span><span>Sam K.</span><b>790</b></div>
+      </div>
+      <p class="demo-tag">Example leaderboard.</p>
+      <div class="btns"><a class="btn primary" href="{{root}}explore">Start your passport</a></div>
+    </div>
+  </div>
+</section>

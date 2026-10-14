@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Comuna — Discover your neighborhood</title>
-<meta name="description" content="Comuna brings local events and familiar favorites together on one map. Good plans, close to home, in Silver Lake, Echo Park and Santa Monica.">
+<title>Comuna — Your neighborhood has plans</title>
+<meta name="description" content="Explore local events, experiences and pop-ups near you. Comuna puts what's happening close to home on one map, starting in Silver Lake, Echo Park and Santa Monica.">
 <meta name="theme-color" content="#244D3A">
 <link rel="canonical" href="https://www.wearecomuna.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Comuna">
-<meta property="og:title" content="Comuna — Discover your neighborhood">
-<meta property="og:description" content="Comuna brings local events and familiar favorites together on one map. Good plans, close to home, in Silver Lake, Echo Park and Santa Monica.">
+<meta property="og:title" content="Comuna — Your neighborhood has plans">
+<meta property="og:description" content="Explore local events, experiences and pop-ups near you. Comuna puts what's happening close to home on one map, starting in Silver Lake, Echo Park and Santa Monica.">
 <meta property="og:url" content="https://www.wearecomuna.com/">
 <meta property="og:image" content="https://www.wearecomuna.com/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -27,242 +27,188 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header">
+<header class="topbar on-green">
   <div class="wrap">
-    <a class="wm" href="./" aria-label="Comuna home">COMUNA<svg width="20" height="20" viewBox="-10 -10 20 20" aria-hidden="true"><circle r="9.15" fill="none" stroke="#D6A638" stroke-width="1.7"/><circle r="4.2" fill="none" stroke="#D6A638" stroke-width="1.36"/><circle r="1.4" fill="#C9533D"/></svg></a>
-    <nav class="topnav" aria-label="Main">
-      <a href="./" aria-current="page">Home</a>
-      <a href="./about" >About</a>
-      <a href="./explore" >Explore</a>
-      <a href="./for-hosts" >For Hosts</a>
-    </nav>
-    <a class="btn btn--green header-cta" href="https://mitchellkimball.github.io/third-space-app/">Try the demo</a>
+    <a class="wm" href="./" aria-label="Comuna home">COMUNA<svg width="18" height="18" viewBox="-9 -9 18 18" aria-hidden="true"><circle r="8.23" fill="none" stroke="#D6A638" stroke-width="1.53"/><circle r="3.78" fill="none" stroke="#D6A638" stroke-width="1.22"/><circle r="1.26" fill="#C9533D"/></svg></a>
+    <div class="right">
+      <a class="betapill" href="./support">Beta · Feedback</a>
+      <a class="pill" href="./explore">Try the app</a>
+    </div>
   </div>
 </header>
 
 <main id="main">
-<section class="sec--green hero">
-  <div class="wrap split">
+<!-- onboarding 1 -->
+<section class="screen onb">
+  <div class="wrap cols">
     <div>
-      <p class="tag">Now in Silver Lake, Echo Park + Santa Monica</p>
-      <h1 class="d1">Discover your <em>neighborhood.</em></h1>
-      <p class="lede">Good plans, close to home. Comuna finds the markets, dinners, live music and pop-ups a few blocks away and puts them on one map.</p>
+      <p class="k">Now in Silver Lake, Echo Park + Santa Monica</p>
+      <h1 class="big" style="margin-top:14px">Your neighborhood has plans.</h1>
+      <p class="lede">Explore local events, experiences and pop-ups near you.</p>
       <div class="btns">
-        <a class="btn btn--paper" href="https://mitchellkimball.github.io/third-space-app/">Try the demo</a>
-        <a class="btn btn--line" href="#how">How it works</a>
+        <a class="btn primary" href="./explore">Get started</a>
+        <a class="skiplink" href="#nearby">See what's nearby ↓</a>
       </div>
     </div>
-
-    <div class="hero-art" aria-label="The Comuna app showing today's four picks">
-      <div class="hero-photo"><img src="./assets/img/hero-silver-lake.webp" alt="" loading="eager"></div>
-      <div class="phone">
-        <div class="scr">
-          <div class="bar">
-            <span class="wm">COMUNA<svg width="15" height="15" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><circle r="6.86" fill="none" stroke="#D6A638" stroke-width="1.3"/><circle r="3.15" fill="none" stroke="#D6A638" stroke-width="1.02"/><circle r="1.05" fill="#C9533D"/></svg></span>
-            <span style="display:flex;gap:6px;align-items:center"><span class="betapill">Beta · Feedback</span><span class="iconbtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#26251F" stroke-width="2" stroke-linecap="round"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg></span></span>
-          </div>
-          <p class="tag">Picked for you today</p>
-          <p class="ttl">Your top 4<br>today</p>
-          <p class="sub">One of each, close to you. New picks every day.</p>
-
-          <div class="pick">
-            <span class="n"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#26251F" d="M12 1.5l2.1 4.3 4.6-1.2-1.2 4.6 4.3 2.1-4.3 2.1 1.2 4.6-4.6-1.2L12 22.5l-2.1-4.3-4.6 1.2 1.2-4.6L2.2 12.7l4.3-2.1-1.2-4.6 4.6 1.2z"/></svg></span>
-            <div><div class="when">Headliner</div><div class="t">Club Nights at Los Globos</div><div class="m">Los Globos · Fri · 10 PM</div></div>
-            <div class="dist">3<small>min away</small></div>
-          </div>
-          <div class="pick">
-            <span class="n"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="2.5" fill="#D6A638"/></svg></span>
-            <div><div class="when">Staple</div><div class="t">Wednesday Trivia at 33 Taps</div><div class="m">33 Taps Silver Lake · Wed · 8 PM</div></div>
-            <div class="dist">3<small>min away</small></div>
-          </div>
-          <div class="pick">
-            <span class="n"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2.5l9 16H2z" fill="#26251F"/></svg></span>
-            <div><div class="when">Hidden Gem</div><div class="t">Music and DJs at Tenants of the Trees</div><div class="m">Tenants of the Trees · Fri</div></div>
-            <div class="dist">3<small>min away</small></div>
-          </div>
-          <div class="pick">
-            <span class="n"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#C9533D"/></svg></span>
-            <div><div class="when">Pop-up</div><div class="t">Oktoberfest at Red Lion Tavern</div><div class="m">Red Lion Tavern · Today</div></div>
-            <div class="dist">5<small>min away</small></div>
-          </div>
-        </div>
-      </div>
-      <p class="hero-note hand" aria-hidden="true">fresh picks,<br>every single day <svg width="44" height="30" viewBox="0 0 44 30" fill="none" stroke="#D6A638" stroke-width="2.4" stroke-linecap="round"><path d="M42 4C30 2 14 6 6 22"/><path d="M4 12l2 11 10-4"/></svg></p>
+    <div class="stampfield" aria-hidden="true">
+      <div class="s1"><img src="./assets/stamps/santa-monica-light.png" alt="" width="210" height="210" style="transform:rotate(-8deg)"></div>
+      <div class="s2"><img src="./assets/stamps/silver-lake-light.png" alt="" width="210" height="210" style="transform:rotate(8deg)"></div>
+      <div class="s3"><img src="./assets/stamps/west-hollywood-light.png" alt="" width="210" height="210" style="transform:rotate(5deg)"></div>
+      <p class="hand">collect every one</p>
     </div>
   </div>
 </section>
 
-<section class="sec sec--paper sec--lined" id="how">
+<!-- home: map -->
+<section class="screen" id="nearby">
   <div class="wrap">
-    <div class="center reveal">
-      <p class="tag">Explore where you live</p>
-      <h2 class="d2">Four kinds of good plans.</h2>
-      <p class="lede">Every day, Comuna picks one of each near you. Find a Headliner, return to a Staple, uncover a Hidden Gem or catch a Pop-up.</p>
+    <div class="cols" style="align-items:end">
+      <div class="reveal">
+        <p class="k">Explore where you live</p>
+        <h2 class="h1">Something good is happening nearby.</h2>
+      </div>
+      <p class="lede reveal" style="margin:0 0 6px">Markets, dinners, workshops, live music, pop-ups. Comuna puts the plans close enough to actually go to on one map. Tap a pin.</p>
     </div>
-    <div class="kinds">
-      <article class="kind reveal">
-        <div class="ico"><svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><path fill="#26251F" d="M12 1.5l2.1 4.3 4.6-1.2-1.2 4.6 4.3 2.1-4.3 2.1 1.2 4.6-4.6-1.2L12 22.5l-2.1-4.3-4.6 1.2 1.2-4.6L2.2 12.7l4.3-2.1-1.2-4.6 4.6 1.2z"/></svg></div>
-        <h3 class="d4">Headliners</h3>
-        <p>Big events worth a trip. The concert, the festival, the night everyone's talking about.</p>
-      </article>
-      <article class="kind reveal">
-        <div class="ico"><svg width="24" height="24" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="2.5" fill="#D6A638"/></svg></div>
-        <h3 class="d4">Staples</h3>
-        <p>Happening every week or month. Trivia night, the farmers market, your run club.</p>
-      </article>
-      <article class="kind reveal">
-        <div class="ico"><svg width="28" height="28" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2.5l9 16H2z" fill="#26251F"/></svg></div>
-        <h3 class="d4">Hidden Gems</h3>
-        <p>Small and local, easy to miss. The back-room supper club, the tiny gallery opening.</p>
-      </article>
-      <article class="kind reveal">
-        <div class="ico"><svg width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#C9533D"/></svg></div>
-        <h3 class="d4">Pop-ups</h3>
-        <p>One time only, don't miss it. Here this weekend, gone by Monday.</p>
-      </article>
+    <div class="mapwrap reveal" aria-label="Example map of events near Silver Lake">
+      <div class="paper-map"></div>
+      <div class="head">
+        <span class="fbtn set">This week<i>▾</i></span>
+        <span class="fbtn">Everything<i>▾</i></span>
+      </div>
+      <a class="maphelp" href="#top4" aria-label="How to read the map">?</a>
+      <span class="maplabel">4 picks near you</span>
+      <div class="toggle"><button type="button" class="on" data-mode="map">Map</button><button type="button" data-mode="list">List</button></div>
+      <div class="picks" data-picks></div>
     </div>
-    <div class="btns center reveal"><a class="btn btn--green" href="./about">Learn about us</a></div>
+    <p class="demo-tag">Example events for illustration. The app shows what's actually on near you.</p>
   </div>
 </section>
 
-<section class="sec sec--sun">
-  <div class="wrap split">
+<!-- top 4 + map key -->
+<section class="screen paper2" id="top4">
+  <div class="wrap cols top">
+    <div class="box reveal">
+      <div class="grab"></div>
+      <p class="k">Picked for you today</p>
+      <h2 class="h1">Your Top 4 today</h2>
+      <p class="sub">One of each, close to you. New picks every day.</p>
+      <div data-picks></div>
+      <a class="btn green block" href="./explore" style="margin-top:16px">Explore the map</a>
+    </div>
     <div class="reveal">
-      <p class="tag">Your passport</p>
-      <h2 class="d2">Collect your neighborhood.</h2>
-      <p class="lede">Save a plan, invite your people and check in when you arrive. Every check-in earns a stamp for the neighborhood, and patches for the places you keep coming back to.</p>
-      <ol class="steps">
-        <li><div><b>Save a plan</b><span>Tap anything on the map to keep it for later.</span></div></li>
-        <li><div><b>Bring your people</b><span>Send the plan to friends in one tap.</span></div></li>
-        <li><div><b>Check in, get stamped</b><span>Show up, check in, and the stamp is yours.</span></div></li>
+      <p class="k">How to read the map</p>
+      <h2 class="h1 sm">Four kinds of good plans.</h2>
+      <div class="legend">
+        <div class="lgrow"><span class="lgico" data-pin="shows" data-big></span><div><b>Headliners</b><span class="d">Big events worth a trip. They get a gold ring on the map.</span></div></div>
+        <div class="lgrow"><span class="lgico"><span class="tierdot">S</span></span><div><b>Staples</b><span class="d">Happening every week or month.</span></div></div>
+        <div class="lgrow"><span class="lgico"><span class="tierdot">G</span></span><div><b>Hidden Gems</b><span class="d">Small and local, easy to miss.</span></div></div>
+        <div class="lgrow"><span class="lgico"><span class="tierdot">P</span></span><div><b>Pop-ups</b><span class="d">One time only, don't miss it.</span></div></div>
+      </div>
+      <h3 class="h2">Pin colors</h3>
+      <div class="lgcats" data-lgcats></div>
+    </div>
+  </div>
+</section>
+
+<!-- onboarding 3: interests -->
+<section class="screen">
+  <div class="wrap cols">
+    <div class="reveal">
+      <p class="k">Make it yours</p>
+      <h2 class="h1">What are you into?</h2>
+      <p class="lede">Pick as many as you like. From DJ nights to run clubs, Comuna covers the whole neighborhood.</p>
+    </div>
+    <div class="interests reveal" data-interests></div>
+  </div>
+</section>
+
+<!-- plans -->
+<section class="screen paper2">
+  <div class="wrap cols">
+    <div class="reveal">
+      <p class="k">Plans</p>
+      <h2 class="h1">Save it. Bring people. Go.</h2>
+      <ol class="kitsteps">
+        <li><div><b>Tap "Interested"</b><span>Anything on the map lands in your Plans calendar.</span></div></li>
+        <li><div><b>Invite your people</b><span>Send the plan to friends. Their invites show up here too.</span></div></li>
+        <li><div><b>Check in when you arrive</b><span>Show up, check in, and get the stamp.</span></div></li>
       </ol>
-      <div class="btns"><a class="btn btn--red" href="https://mitchellkimball.github.io/third-space-app/">Let's discover</a></div>
+    </div>
+    <div class="reveal" data-cal>
+      <div class="calhead"><div class="m">Month</div><button type="button" data-prev aria-label="Previous month">&lsaquo;</button><button type="button" data-today>Today</button><button type="button" data-next aria-label="Next month">&rsaquo;</button></div>
+      <div class="calgrid"></div>
+      <div class="dayhead"></div>
+      <div class="empty"><span class="hand">free tonight?</span>Nothing saved for this day yet. Tap "Interested" on an event and it lands here.</div>
+    </div>
+  </div>
+</section>
+
+<!-- passport -->
+<section class="screen">
+  <div class="wrap cols">
+    <div class="reveal">
+      <div class="passhead"><p class="h1" style="margin:0">Passport</p><img src="./assets/patches/pennant.webp" alt="Comuna Events pennant"></div>
+      <p class="lede">Every check-in earns a stamp for the neighborhood. Keep exploring to unlock patches, climb the monthly leaderboard and fill your passport.</p>
+      <div class="btns"><a class="btn green" href="./passport">Open your passport</a></div>
     </div>
     <div class="reveal">
-      <div class="passport-tabs" aria-hidden="true"><span class="on">✸ Neighborhoods 3</span><span>■ Staples 3</span><span>▲ Hidden Gems 1</span></div>
-      <div class="passport">
-        <div class="ph"><b>Neighborhood stamps</b><span>3 of 7 collected</span></div>
-        <div class="stamps">
-          <img src="./assets/stamps/silver-lake.png" alt="Silver Lake stamp">
-          <img src="./assets/stamps/echo-park.png" alt="Echo Park stamp">
-          <img src="./assets/stamps/santa-monica.png" alt="Santa Monica stamp">
-          <div class="ghost-stamp">next stamp?</div>
-          <img src="./assets/stamps/los-feliz.png" alt="" style="opacity:.18;filter:grayscale(1)">
-          <img src="./assets/stamps/venice.png" alt="" style="opacity:.18;filter:grayscale(1)">
-        </div>
-        <p class="note hand">3 hoods stamped!</p>
+      <div class="passcover">
+        <span class="seal" aria-hidden="true"><svg width="150" height="150" viewBox="-75 -75 150 150"><circle r="70" fill="none" stroke="#F3E7D1" stroke-width="10"/><circle r="32" fill="none" stroke="#F3E7D1" stroke-width="8"/><circle r="11" fill="#F3E7D1"/></svg></span>
+        <p class="k">You · Los Angeles</p>
+        <p class="bigc">5 places, 3 neighborhoods</p>
+        <div class="bar"><i style="width:38%"></i></div>
+        <div class="passstats"><div><b>2</b>patches</div><div><b>7</b>check-ins</div><div><b>820</b>points this month</div></div>
       </div>
-      <div class="patches">
-        <img src="./assets/patches/first-stamp.webp" alt="First Stamp patch">
-        <img src="./assets/patches/three-hoods.webp" alt="Three Hoods patch">
-        <img src="./assets/patches/regular.webp" alt="Regular patch">
-        <img src="./assets/patches/scout.webp" alt="Scout patch">
+      <div class="patches" style="margin-top:14px">
+        <div class="patch"><img src="./assets/patches/first-stamp.webp" alt=""><b>FIRST STAMP</b>WELCOME</div>
+        <div class="patch"><img src="./assets/patches/three-hoods.webp" alt=""><b>THREE HOODS</b>EXPLORER</div>
+        <div class="patch locked"><img src="./assets/patches/regular.webp" alt=""><b>REGULAR</b>5 VISITS, 1 PLACE</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="marquee" aria-label="Tonight in your neighborhood">
-  <div class="marquee-track" aria-hidden="true">
-    <span>Tonight in your neighborhood <svg viewBox="0 0 24 24"><path d="M12 1.5l2.1 4.3 4.6-1.2-1.2 4.6 4.3 2.1-4.3 2.1 1.2 4.6-4.6-1.2L12 22.5l-2.1-4.3-4.6 1.2 1.2-4.6L2.2 12.7l4.3-2.1-1.2-4.6 4.6 1.2z"/></svg></span>
-    <span>Tonight in your neighborhood <svg viewBox="0 0 24 24"><path d="M12 1.5l2.1 4.3 4.6-1.2-1.2 4.6 4.3 2.1-4.3 2.1 1.2 4.6-4.6-1.2L12 22.5l-2.1-4.3-4.6 1.2 1.2-4.6L2.2 12.7l4.3-2.1-1.2-4.6 4.6 1.2z"/></svg></span>
-    <span>Tonight in your neighborhood <svg viewBox="0 0 24 24"><path d="M12 1.5l2.1 4.3 4.6-1.2-1.2 4.6 4.3 2.1-4.3 2.1 1.2 4.6-4.6-1.2L12 22.5l-2.1-4.3-4.6 1.2 1.2-4.6L2.2 12.7l4.3-2.1-1.2-4.6 4.6 1.2z"/></svg></span>
-    <span>Tonight in your neighborhood <svg viewBox="0 0 24 24"><path d="M12 1.5l2.1 4.3 4.6-1.2-1.2 4.6 4.3 2.1-4.3 2.1 1.2 4.6-4.6-1.2L12 22.5l-2.1-4.3-4.6 1.2 1.2-4.6L2.2 12.7l4.3-2.1-1.2-4.6 4.6 1.2z"/></svg></span>
-  </div>
-</div>
-
-<section class="sec sec--paper">
-  <div class="wrap split">
+<!-- host teaser -->
+<section class="screen ink">
+  <div class="wrap cols">
     <div class="reveal">
-      <p class="tag">For hosts</p>
-      <h2 class="d2">Put your business on the map.</h2>
-      <p class="lede">Reach people who are already nearby and ready to go out, and see every neighbor who walks through your door.</p>
-      <div class="btns"><a class="btn btn--green" href="./for-hosts">Become a host</a></div>
+      <p class="k">For hosts</p>
+      <h2 class="h1">Be discovered by your neighborhood.</h2>
+      <p class="lede">Run a bar, café, shop or event series? Put it on the map for neighbors who are close by and ready to go out.</p>
+      <div class="btns"><a class="btn sun" href="./for-hosts">See it as a host</a></div>
     </div>
-    <div class="reveal">
-      <div class="host" role="img" aria-label="Example host dashboard for Ten Speed Coffee showing 87 verified check-ins this month">
-        <div class="k">Host portal</div>
-        <div class="name">Ten Speed Coffee</div>
-        <div class="muted" style="font-size:13px;color:#B9AE97">Be discovered by your neighborhood.</div>
-        <div class="big"><div class="k">Verified check-ins this month</div><b>87</b><span style="font-size:13px">Neighbors who found you on Comuna and scanned in at the door.</span></div>
-        <div class="stats3"><div><b>$8,940</b>spend by Comuna guests</div><div><b>312</b>neighbors reached</div><div><b>23</b>regulars with 5+ stamps</div></div>
-        <div class="bill"><div><span>Listing fee</span><span>$40</span></div><div><span>87 verified visits × $5</span><span>$435</span></div><div><span>You pay this month</span><span>$475</span></div></div>
-        <p class="fine">You only pay for people who actually walk in.</p>
-      </div>
-      <p class="demo-note muted">Demo figures, not actual results.</p>
+    <div class="portal reveal">
+      <p class="sub" style="color:var(--sun);font-weight:700">Host portal</p>
+      <p class="h1">Ten Speed Coffee</p>
+      <div class="hostbig"><p class="k">Verified check-ins this month</p><div class="v">87</div><div class="s">Neighbors who found you on Comuna and scanned in at the door.</div></div>
+      <div class="hostgrid"><div><b>$8,940</b>spend by Comuna guests</div><div><b>312</b>neighbors reached</div><div><b>23</b>regulars with 5+ stamps</div></div>
+      <p class="demo-tag" style="color:var(--ink-muted)">Demo figures, not actual results.</p>
     </div>
-  </div>
-</section>
-
-<section class="sec sec--green" id="contact">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="tag">Say hi</p>
-      <h2 class="d2">We want to hear from you.</h2>
-      <p class="lede">Know a spot we're missing? Have an idea, or want Comuna in your neighborhood next? Tell us.</p>
-      <p class="hand" style="font-size:30px;color:var(--sun);margin-top:26px;transform:rotate(-2deg)">we read every one.</p>
-    </div>
-    <form class="form reveal" data-form="contact" novalidate>
-      <div class="row">
-        <div><label for="c-name">Name</label><input class="field" id="c-name" name="name" autocomplete="name" required></div>
-        <div><label for="c-email">Email</label><input class="field" id="c-email" name="email" type="email" autocomplete="email" required></div>
-      </div>
-      <div><label for="c-hood">Your neighborhood <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:500">(optional)</span></label><input class="field" id="c-hood" name="neighborhood" placeholder="Silver Lake, Echo Park…"></div>
-      <div><label for="c-msg">Message</label><textarea class="field" id="c-msg" name="message" required></textarea></div>
-      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn btn--sun" type="submit">Send it</button>
-      <p class="form-status" role="status" aria-live="polite"></p>
-    </form>
   </div>
 </section>
 </main>
 
-<footer class="site-footer">
+<footer class="foot">
   <div class="wrap">
-    <p class="d2">Your neighborhood<br><span>has plans.</span></p>
-    <div class="foot-grid">
-      <div>
-        <a class="wm" href="./" aria-label="Comuna home">COMUNA<svg width="22" height="22" viewBox="-11 -11 22 22" aria-hidden="true"><circle r="10.1" fill="none" stroke="#D6A638" stroke-width="1.8"/><circle r="4.6" fill="none" stroke="#D6A638" stroke-width="1.5"/><circle r="1.6" fill="#C9533D"/></svg></a>
-        <p class="muted" style="margin:12px 0 0;max-width:22em;font-size:15px">Local events and familiar favorites, close to home. Starting in Silver Lake, Echo Park and Santa Monica.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/comuna.events" aria-label="Comuna on Instagram"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.8A3.1 3.1 0 1 1 15.1 12 3.1 3.1 0 0 1 12 15.1zm6-8a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 8.2a5.5 5.5 0 0 0-1.5-3.9 5.5 5.5 0 0 0-3.9-1.5C15 2.7 9 2.7 7.5 2.8a5.5 5.5 0 0 0-3.9 1.5A5.5 5.5 0 0 0 2.1 8.2C2 9.7 2 15.3 2.1 16.8a5.5 5.5 0 0 0 1.5 3.9 5.5 5.5 0 0 0 3.9 1.5c1.5.1 7.5.1 9 0a5.5 5.5 0 0 0 3.9-1.5 5.5 5.5 0 0 0 1.5-3.9c.1-1.5.1-7.1 0-8.6zm-2 10.4a3.2 3.2 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.6s-.1-4.4.4-5.7a3.2 3.2 0 0 1 1.8-1.8c1.3-.5 4.3-.4 5.7-.4s4.4-.1 5.7.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.7s.1 4.3-.4 5.6z"/></svg></a>
-          <a href="https://www.tiktok.com/@comuna.events" aria-label="Comuna on TikTok"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.3v13.6a2.9 2.9 0 1 1-2.9-2.9 2.8 2.8 0 0 1 .8.1V9.4a6.2 6.2 0 1 0 5.4 6.2V8.9a7.7 7.7 0 0 0 4.4 1.4V7a4.5 4.5 0 0 1-4.4-5z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <h4>Comuna</h4>
-        <ul>
-          <li><a href="./about">About</a></li>
-          <li><a href="./explore">Explore</a></li>
-          <li><a href="https://mitchellkimball.github.io/third-space-app/">Try the demo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Hosts</h4>
-        <ul>
-          <li><a href="./for-hosts">Put your business on the map</a></li>
-          <li><a href="./for-hosts#how">How hosting works</a></li>
-          <li><a href="./for-hosts#apply">Apply</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Help</h4>
-        <ul>
-          <li><a href="./support">Support</a></li>
-          <li><a href="./privacy">Privacy Policy</a></li>
-          <li><a href="./terms">Terms of Use</a></li>
-        </ul>
-      </div>
+    <p class="endnote">that's the list. go have fun.</p>
+    <a class="linkrow" href="./explore">Try the app <span>Live demo</span></a>
+    <a class="linkrow" href="./support">Support <span>Questions &amp; feedback</span></a>
+    <a class="linkrow" href="./privacy">Privacy Policy <span>Your data</span></a>
+    <a class="linkrow" href="./terms">Terms of Use <span>The fine print</span></a>
+    <a class="linkrow host" href="./for-hosts">See it as a host <span>Put your spot on the map</span></a>
+    <div class="social">
+      <a class="linkrow" href="https://www.instagram.com/comuna.events">Instagram <span>@comuna.events</span></a>
+      <a class="linkrow" href="https://www.tiktok.com/@comuna.events">TikTok <span>@comuna.events</span></a>
     </div>
-    <p class="copy">© <span data-year>2026</span> Comuna. Made in Los Angeles.</p>
+    <p class="copy">© <span data-year>2026</span> Comuna · Made in Los Angeles</p>
   </div>
 </footer>
 
-<nav class="tabbar" aria-label="Main">
-  <a href="./" aria-current="page"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17s-5-4.6-5-8.5a5 5 0 0 1 10 0c0 3.9-5 8.5-5 8.5z"/><circle cx="12" cy="8.5" r="1.8"/><path d="M8 16.2c-2.4.4-4 1.2-4 2.1 0 1.5 3.6 2.7 8 2.7s8-1.2 8-2.7c0-.9-1.6-1.7-4-2.1"/></svg>Home</a>
-  <a href="./about" ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>About</a>
-  <a href="./explore" ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Explore</a>
-  <a href="./for-hosts" ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6v10a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Hosts</a>
+<nav class="nav" aria-label="Main">
+  <a href="./" aria-current="page"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17s-5-4.6-5-8.5a5 5 0 0 1 10 0c0 3.9-5 8.5-5 8.5z"/><circle cx="12" cy="8.5" r="1.8"/><path d="M8 16.2c-2.4.4-4 1.2-4 2.1 0 1.5 3.6 2.7 8 2.7s8-1.2 8-2.7c0-.9-1.6-1.7-4-2.1"/></svg>Home</a>
+  <a href="./passport" ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.6 7.5h14.8M4.6 16.5h14.8"/></svg>Passport</a>
+  <a href="./for-hosts" ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg>Hosts</a>
+  <a href="./about" ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.4-6 8-6s6.6 2 8 6"/></svg>About</a>
 </nav>
 
 <script src="./assets/site.js" defer></script>

@@ -5,16 +5,22 @@ It's a plain static site: no framework, hosted for free on GitHub Pages.
 
 ## Pages
 
-| Page | File | Notes |
+Every page is built from the app's own screens and components, so the site feels like the app.
+
+| Page | File | Based on the app's… |
 |---|---|---|
-| Home | `src/pages/index.html` | Hero with the "top 4" picks, the four kinds of plans, passport, hosts teaser, contact form |
-| About | `src/pages/about.html` | Story and how Comuna works |
-| Explore | `src/pages/explore.html` | The live app demo, embedded in a phone frame |
-| For Hosts | `src/pages/for-hosts.html` | How hosting works and the host application form |
-| Support | `src/pages/support.html` | FAQ and support form (App Store requires a Support URL) |
-| Privacy Policy | `src/pages/privacy.html` | **Draft**: needs legal review (App Store requires a Privacy Policy URL) |
-| Terms of Use | `src/pages/terms.html` | **Draft**: needs legal review |
-| 404 | `src/pages/404.html` | Shown for missing pages |
+| Home | `src/pages/index.html` | Onboarding, map (paper map with pins and cards), Top 4, interests, Plans calendar, Passport cover, host portal |
+| Passport | `src/pages/passport.html` | Passport screen: cover, stamp pages, patches, points, leaderboard |
+| For Hosts | `src/pages/for-hosts.html` | Host portal (dark screen) plus an application form |
+| About | `src/pages/about.html` | Profile screen |
+| Try the app | `src/pages/explore.html` | The app's desktop stage, with the live app in a phone frame |
+| Support | `src/pages/support.html` | Alerts list (FAQ) and the Beta · Feedback sheet (App Store needs a Support URL) |
+| Privacy Policy | `src/pages/privacy.html` | Bottom sheet. **Draft**: needs legal review (App Store needs a Privacy Policy URL) |
+| Terms of Use | `src/pages/terms.html` | Bottom sheet. **Draft**: needs legal review |
+| 404 | `src/pages/404.html` | Stamp modal |
+
+The map, pins, pick cards and calendar are drawn by `assets/site.js`, ported from the app. The events on the
+website map are examples; edit `PICKS` in `assets/site.js` to change them.
 
 ## Editing
 

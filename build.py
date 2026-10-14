@@ -12,7 +12,7 @@ SITE = {
     # The interactive app demo. Change this if the app moves.
     'demo_url': 'https://mitchellkimball.github.io/third-space-app/',
 }
-NAV = ['home', 'about', 'explore', 'hosts']
+NAV = ['home', 'passport', 'hosts', 'about']
 
 layout = (ROOT / 'src/layout.html').read_text()
 for src in sorted((ROOT / 'src/pages').glob('*.html')):
@@ -21,7 +21,7 @@ for src in sorted((ROOT / 'src/pages').glob('*.html')):
     body = text.split('-->', 1)[1].strip()
     out_name = src.name
     path = '/' if out_name == 'index.html' else '/' + out_name[:-5]
-    values = {**SITE, **meta, 'path': path, 'root': './', 'content': body}
+    values = {**SITE, 'topbar': '', **meta, 'path': path, 'root': './', 'content': body}
     for n in NAV:
         values['cur_' + n] = 'aria-current="page"' if meta.get('nav') == n else ''
     html = layout
