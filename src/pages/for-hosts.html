@@ -1,0 +1,88 @@
+<!--
+title: For Hosts — Put your business on the map | Comuna
+description: Reach people already nearby and ready to go out. Tell Comuna about your venue, event, or experience.
+nav: hosts
+-->
+<section class="sec sec--green hero">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="tag">For hosts</p>
+      <h1 class="d1">Put your business on the map.</h1>
+      <p class="lede">Reach people already nearby and ready to go out. Tell us about your venue, event, or experience.</p>
+      <div class="btns"><a class="btn btn--sun" href="#apply">Apply to host</a><a class="btn btn--line" href="#how">How it works</a></div>
+    </div>
+    <div class="reveal">
+      <div class="photo photo--tilt"><img src="{{root}}assets/img/hosts-map.webp" alt="Hands marking places on a city map with a pen" style="aspect-ratio:4/5"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper sec--lined" id="how">
+  <div class="wrap">
+    <div class="center reveal">
+      <p class="tag">How hosting works</p>
+      <h2 class="d2">Get found by your neighborhood.</h2>
+    </div>
+    <div class="nums">
+      <article class="num reveal"><div class="n">01</div><h3 class="d4">Tell us what's on</h3><p>Your weekly trivia, your one-night pop-up, your Saturday market. Send it once and we'll keep it on the map.</p></article>
+      <article class="num reveal"><div class="n">02</div><h3 class="d4">Neighbors find you</h3><p>Comuna shows your event to people close by, right when they're deciding what to do tonight.</p></article>
+      <article class="num reveal"><div class="n">03</div><h3 class="d4">See who shows up</h3><p>Guests check in when they arrive, so you can see real visits, new faces and the regulars who keep coming back.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--sun">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="tag">Your host portal</p>
+      <h2 class="d2">Real visits, not just views.</h2>
+      <p class="lede">Every check-in is a neighbor who found you on Comuna and walked through your door. Your portal shows check-ins, reach and regulars at a glance.</p>
+    </div>
+    <div class="reveal">
+      <div class="host" role="img" aria-label="Example host dashboard for Ten Speed Coffee showing 87 verified check-ins this month">
+        <div class="k">Host portal</div>
+        <div class="name">Ten Speed Coffee</div>
+        <div style="font-size:13px;color:#B9AE97">Be discovered by your neighborhood.</div>
+        <div class="big"><div class="k">Verified check-ins this month</div><b>87</b><span style="font-size:13px">Neighbors who found you on Comuna and scanned in at the door.</span></div>
+        <div class="stats3"><div><b>$8,940</b>spend by Comuna guests</div><div><b>312</b>neighbors reached</div><div><b>23</b>regulars with 5+ stamps</div></div>
+      </div>
+      <p class="demo-note" style="color:var(--green)">Demo figures, not actual results.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="apply">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="tag">Apply</p>
+      <h2 class="d2">Tell us about your place.</h2>
+      <p class="lede">We're starting in Silver Lake, Echo Park and Santa Monica, and adding hosts by hand. Tell us what's happening, where it's happening, and why your neighbors should know about it.</p>
+      <p class="hand" style="font-size:30px;color:var(--red);margin-top:24px;transform:rotate(-2deg)">independent spots first.</p>
+    </div>
+    <form class="form reveal" data-form="host" novalidate>
+      <div class="row">
+        <div><label for="h-biz">Business or event</label><input class="field" id="h-biz" name="business" autocomplete="organization" required></div>
+        <div><label for="h-type">What is it?</label>
+          <select class="field" id="h-type" name="type">
+            <option>Venue (bar, café, shop…)</option>
+            <option>Recurring event</option>
+            <option>One-time event or pop-up</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div><label for="h-name">Your name</label><input class="field" id="h-name" name="name" autocomplete="name" required></div>
+        <div><label for="h-email">Email</label><input class="field" id="h-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="row">
+        <div><label for="h-hood">Neighborhood</label><input class="field" id="h-hood" name="neighborhood" placeholder="Silver Lake, Echo Park…" required></div>
+        <div><label for="h-link">Website or Instagram</label><input class="field" id="h-link" name="link" placeholder="@yourplace"></div>
+      </div>
+      <div><label for="h-msg">What's happening?</label><textarea class="field" id="h-msg" name="message" placeholder="Tell us about your events, how often they happen, and who they're for." required></textarea></div>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn--green" type="submit">Send application</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
