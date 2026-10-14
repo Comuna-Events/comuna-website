@@ -123,7 +123,9 @@
         mapboxgl.accessToken = MAPBOX_TOKEN;
         const el = document.createElement('div'); el.className = 'mbmap'; wrap.prepend(el);
         let done = false;
-        const giveUp = () => { if (done) return; done = true; try { m.remove(); } catch (e) {} el.remove(); };
+        // Back to the paper map. On the website this is fine at any point (the pins are examples), so a token
+        // refused before or after load never leaves an empty box.
+        const giveUp = () => { if (!el.isConnected) return; done = true; try { m.remove(); } catch (e) {} el.remove(); wrap.classList.remove('live'); paintPaper(wrap); };
         const timer = setTimeout(giveUp, 8000);
         const m = new mapboxgl.Map({ container: el, style: 'mapbox://styles/mapbox/light-v11', center: [ORIGIN.lng, ORIGIN.lat], zoom: 13.6, attributionControl: false, logoPosition: 'top-left', pitchWithRotate: false, dragRotate: false, cooperativeGestures: true });
         m.addControl(new mapboxgl.AttributionControl({ compact: true }), 'top-right');
@@ -140,7 +142,8 @@
             pin.style.background = CATS[p.cat].bg; pin.setAttribute('aria-label', `${p.title}, ${CATS[p.cat].label}${p.big ? ', Headliner' : ''}`); pin.innerHTML = catIcon(p.cat, 15);
             new mapboxgl.Marker({ element: pin }).setLngLat([p.lng, p.lat]).addTo(m);
           });
-          wrap.classList.add('live');
+          const reveal = () => { if (!el.isConnected) return; if (m.isStyleLoaded()) wrap.classList.add('live'); else giveUp(); };
+          if (m.areTilesLoaded && m.areTilesLoaded()) reveal(); else m.once('idle', reveal);
           wrap.addEventListener('click', e => { const card = e.target.closest('.picks .pick'); if (card) { const p = PICKS[card.dataset.i]; m.easeTo({ center: [p.lng, p.lat], duration: 600 }); } });
           const tg = wrap.querySelector('.toggle button[data-mode="map"]'); if (tg) tg.addEventListener('click', () => setTimeout(() => m.resize(), 0));
         });
