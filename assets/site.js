@@ -75,9 +75,9 @@
     PICKS.forEach((p, i) => { const q = proj(p); host.insertAdjacentHTML('beforeend', `<button type="button" class="pin${p.big ? ' big' : ''}" data-i="${i}" style="left:${q.x}px;top:${q.y}px;background:${CATS[p.cat].bg}" aria-label="${p.title}, ${CATS[p.cat].label}${p.big ? ', Headliner' : ''}">${catIcon(p.cat, 15)}</button>`); });
   }
   // ---------- live Mapbox map (same setup as the app's tryMapbox / styleMapbox) ----------
-  // The token is locked to approved web addresses in Mapbox. Anywhere it isn't approved (or Mapbox can't load),
+  // The website's own token (cpicke21's Mapbox account), locked to the site's web addresses in Mapbox. Anywhere it isn't approved (or Mapbox can't load),
   // the paper map above stays, just like in the app.
-  const MAPBOX_TOKEN = 'pk.eyJ1IjoibWl0Y2hlbGxraW1iYWxsOTQiLCJhIjoiY210dHNsenB6MDZxaDJ6cTNxamUxcTVybCJ9.1-J_H9klBRnP4I14GnPDxQ';
+  const MAPBOX_TOKEN = 'pk.eyJ1IjoiY3BpY2tlMjEiLCJhIjoiY212OGxiY20zMDFyOTJ4b292ODI4OWw2ZiJ9.N20uJkYXczHjHmyhV97YtA';
   const MAPBOX_JS = 'https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl';
   const MAPCOL = { land: '#EFE2C8', water: '#AFC0D8', park: '#C9D4B5', building: '#E6D6B8', road: '#FBF6EA', major: '#FFFFFF', label: '#26251F', halo: '#F3E7D1', minorLabel: '#6B675A' };
   function styleMapbox(m) {
