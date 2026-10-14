@@ -429,3 +429,12 @@ textarea.field { min-height: 120px; resize: vertical; }
   .topbar .wm { font-size: 26px; }
   .foot .social { flex-direction: column; gap: 0; }
 }
+/* live Mapbox map (sits on top of the paper map once it has loaded) */
+.mbmap { position: absolute; inset: 0; z-index: 1; }
+.mapwrap.live .paper-map { visibility: hidden; }
+.mapwrap.list .mbmap { display: none; }
+.mbmap .pin { position: absolute; transform: none; }
+.mbmap .pin.sel { transform: none; }
+.youmk { pointer-events: none; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .25)); }
+.mapwrap .mapboxgl-ctrl-top-left, .mapwrap .mapboxgl-ctrl-top-right { top: 56px; }
+.mapwrap .mapboxgl-ctrl-logo, .mapwrap .mapboxgl-ctrl-attrib { opacity: .6; }

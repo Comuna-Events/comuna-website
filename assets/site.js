@@ -74,6 +74,80 @@
     DOTS.forEach(d => { const p = proj(d); if (p.x < 6 || p.x > w - 6 || p.y < 60 || p.y > h - 140) return; host.insertAdjacentHTML('beforeend', `<span class="edot" style="left:${p.x}px;top:${p.y}px;background:${CATS[d.cat].bg}"></span>`); });
     PICKS.forEach((p, i) => { const q = proj(p); host.insertAdjacentHTML('beforeend', `<button type="button" class="pin${p.big ? ' big' : ''}" data-i="${i}" style="left:${q.x}px;top:${q.y}px;background:${CATS[p.cat].bg}" aria-label="${p.title}, ${CATS[p.cat].label}${p.big ? ', Headliner' : ''}">${catIcon(p.cat, 15)}</button>`); });
   }
+  // ---------- live Mapbox map (same setup as the app's tryMapbox / styleMapbox) ----------
+  // The token is locked to approved web addresses in Mapbox. Anywhere it isn't approved (or Mapbox can't load),
+  // the paper map above stays, just like in the app.
+  const MAPBOX_TOKEN = 'pk.eyJ1IjoibWl0Y2hlbGxraW1iYWxsOTQiLCJhIjoiY210dHNsenB6MDZxaDJ6cTNxamUxcTVybCJ9.1-J_H9klBRnP4I14GnPDxQ';
+  const MAPBOX_JS = 'https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl';
+  const MAPCOL = { land: '#EFE2C8', water: '#AFC0D8', park: '#C9D4B5', building: '#E6D6B8', road: '#FBF6EA', major: '#FFFFFF', label: '#26251F', halo: '#F3E7D1', minorLabel: '#6B675A' };
+  function styleMapbox(m) {
+    (m.getStyle().layers || []).forEach(l => { const id = l.id; try {
+      if (l.type === 'background') m.setPaintProperty(id, 'background-color', MAPCOL.land);
+      else if (l.type === 'fill') {
+        if (/water/.test(id)) m.setPaintProperty(id, 'fill-color', MAPCOL.water);
+        else if (/landcover|hillshade/.test(id)) { m.setPaintProperty(id, 'fill-color', MAPCOL.land); m.setPaintProperty(id, 'fill-opacity', 0); }
+        else if (id === 'landuse') { m.setPaintProperty(id, 'fill-color', ['match', ['get', 'class'], ['park', 'pitch', 'grass', 'cemetery', 'wood', 'scrub', 'golf_course', 'agriculture'], MAPCOL.park, 'rgba(239,226,200,0)']); m.setPaintProperty(id, 'fill-opacity', .85); }
+        else if (/park|pitch|grass|wood|national|golf|cemetery/.test(id)) { m.setPaintProperty(id, 'fill-color', MAPCOL.park); m.setPaintProperty(id, 'fill-opacity', .8); }
+        else if (/building/.test(id)) m.setPaintProperty(id, 'fill-color', MAPCOL.building);
+        else m.setPaintProperty(id, 'fill-color', MAPCOL.land);
+      } else if (l.type === 'line') {
+        if (/water/.test(id)) m.setPaintProperty(id, 'line-color', MAPCOL.water);
+        else if (/motorway|trunk|primary/.test(id)) m.setPaintProperty(id, 'line-color', MAPCOL.major);
+        else if (/road|street|bridge|tunnel|path|secondary|tertiary/.test(id)) m.setPaintProperty(id, 'line-color', MAPCOL.road);
+        else if (/admin|boundary/.test(id)) m.setLayoutProperty(id, 'visibility', 'none');
+      } else if (l.type === 'symbol') {
+        if (/poi|transit|airport|natural-point|water-point/.test(id)) m.setLayoutProperty(id, 'visibility', 'none');
+        else { m.setPaintProperty(id, 'text-color', /road/.test(id) ? MAPCOL.minorLabel : MAPCOL.label); m.setPaintProperty(id, 'text-halo-color', MAPCOL.halo); m.setPaintProperty(id, 'text-halo-width', 1.4); }
+        if (/settlement-subdivision|place-neighbo/.test(id)) m.setLayoutProperty(id, 'visibility', 'none');
+      }
+    } catch (e) {} });
+    try {
+      m.addSource('comuna-hoods', { type: 'geojson', data: { type: 'FeatureCollection', features: HOODS.map(h => ({ type: 'Feature', properties: { name: h.name.toUpperCase() }, geometry: { type: 'Point', coordinates: [h.lng, h.lat] } })) } });
+      m.addLayer({ id: 'comuna-hood-labels', type: 'symbol', source: 'comuna-hoods', minzoom: 11, layout: { 'text-field': ['get', 'name'], 'text-font': ['DIN Pro Bold', 'Arial Unicode MS Bold'], 'text-size': ['interpolate', ['linear'], ['zoom'], 11, 11, 15, 15], 'text-letter-spacing': .25, 'text-offset': [0, -2.2] }, paint: { 'text-color': MAPCOL.label, 'text-opacity': .55, 'text-halo-color': MAPCOL.halo, 'text-halo-width': 1.5 } });
+      m.addSource('comuna-dots', { type: 'geojson', data: { type: 'FeatureCollection', features: DOTS.map(d => ({ type: 'Feature', properties: { c: CATS[d.cat].bg }, geometry: { type: 'Point', coordinates: [d.lng, d.lat] } })) } });
+      m.addLayer({ id: 'comuna-dots', type: 'circle', source: 'comuna-dots', paint: { 'circle-radius': 5.5, 'circle-color': ['get', 'c'], 'circle-stroke-width': 1.5, 'circle-stroke-color': MAPCOL.halo, 'circle-opacity': .85 } });
+    } catch (e) {}
+  }
+  let mapboxLoad = null;
+  const loadMapbox = () => mapboxLoad || (mapboxLoad = new Promise((res, rej) => {
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = MAPBOX_JS + '.css'; document.head.appendChild(css);
+    const js = document.createElement('script'); js.src = MAPBOX_JS + '.js'; js.onload = res; js.onerror = rej; document.head.appendChild(js);
+  }));
+  function tryMapbox(wrap, select) {
+    if (!MAPBOX_TOKEN || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(es => { if (!es.some(e => e.isIntersecting)) return; io.disconnect(); start(); }, { rootMargin: '400px' });
+    io.observe(wrap);
+    function start() {
+      loadMapbox().then(() => {
+        if (!window.mapboxgl || (mapboxgl.supported && !mapboxgl.supported())) return;
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+        const el = document.createElement('div'); el.className = 'mbmap'; wrap.prepend(el);
+        let done = false;
+        const giveUp = () => { if (done) return; done = true; try { m.remove(); } catch (e) {} el.remove(); };
+        const timer = setTimeout(giveUp, 8000);
+        const m = new mapboxgl.Map({ container: el, style: 'mapbox://styles/mapbox/light-v11', center: [ORIGIN.lng, ORIGIN.lat], zoom: 13.6, attributionControl: false, logoPosition: 'top-left', pitchWithRotate: false, dragRotate: false, cooperativeGestures: true });
+        m.addControl(new mapboxgl.AttributionControl({ compact: true }), 'top-right');
+        m.on('error', ev => { const er = ev && ev.error; if (er && ([401, 403].includes(er.status) || /401|403|Forbidden|Unauthorized/i.test(String(er.message)))) { clearTimeout(timer); giveUp(); } });
+        m.on('style.load', () => styleMapbox(m));
+        m.once('idle', () => {
+          clearTimeout(timer); if (done) return; done = true;
+          const bounds = new mapboxgl.LngLatBounds(); [ORIGIN, ...PICKS].forEach(p => bounds.extend([p.lng, p.lat]));
+          m.fitBounds(bounds, { padding: { top: 90, bottom: 170, left: 50, right: 50 }, maxZoom: 15, duration: 0 });
+          const you = document.createElement('div'); you.className = 'youmk'; you.innerHTML = omark(30);
+          new mapboxgl.Marker({ element: you }).setLngLat([ORIGIN.lng, ORIGIN.lat]).addTo(m);
+          PICKS.forEach((p, i) => {
+            const pin = document.createElement('button'); pin.type = 'button'; pin.className = 'pin' + (p.big ? ' big' : ''); pin.dataset.i = i;
+            pin.style.background = CATS[p.cat].bg; pin.setAttribute('aria-label', `${p.title}, ${CATS[p.cat].label}${p.big ? ', Headliner' : ''}`); pin.innerHTML = catIcon(p.cat, 15);
+            new mapboxgl.Marker({ element: pin }).setLngLat([p.lng, p.lat]).addTo(m);
+          });
+          wrap.classList.add('live');
+          wrap.addEventListener('click', e => { const card = e.target.closest('.picks .pick'); if (card) { const p = PICKS[card.dataset.i]; m.easeTo({ center: [p.lng, p.lat], duration: 600 }); } });
+          const tg = wrap.querySelector('.toggle button[data-mode="map"]'); if (tg) tg.addEventListener('click', () => setTimeout(() => m.resize(), 0));
+        });
+      }).catch(() => {});
+    }
+  }
+
   document.querySelectorAll('.mapwrap').forEach(wrap => {
     const select = i => {
       wrap.querySelectorAll('.pin').forEach(p => p.classList.toggle('sel', p.dataset.i === String(i)));
@@ -93,6 +167,7 @@
     });
     paintPaper(wrap);
     let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => paintPaper(wrap), 120); });
+    tryMapbox(wrap, select);
   });
 
   // ---------- map key + interests ----------
