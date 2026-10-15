@@ -81,7 +81,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   background: rgba(251, 246, 234, .82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   border: 1px solid rgba(220, 205, 174, .8); box-shadow: 0 4px 16px rgba(38, 37, 31, .12);
 }
-.nav a { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 6px 0 9px; text-decoration: none; font-size: 11px; font-weight: 700; color: var(--muted); border-radius: 30px; transition: background-color .15s ease; }
+.nav a { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 10px 0 14px; text-decoration: none; font-size: 11px; font-weight: 700; color: var(--muted); border-radius: 30px; transition: background-color .15s ease; }
 .nav a:hover { background: rgba(36, 77, 58, .06); }
 .nav svg { stroke: var(--muted); opacity: .75; transition: opacity .15s; }
 .nav a[aria-current="page"] { color: var(--green); }
