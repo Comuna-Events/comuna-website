@@ -10,7 +10,7 @@ ROOT = pathlib.Path(__file__).parent
 SITE = {
     'site_url': 'https://www.wearecomuna.com',
     # The interactive app demo. Change this if the app moves.
-    'demo_url': 'https://mitchellkimball.github.io/third-space-app/',
+    'demo_url': 'https://comuna-events.github.io/Comuna-app/',
 }
 NAV = ['home', 'passport', 'hosts', 'about']
 
