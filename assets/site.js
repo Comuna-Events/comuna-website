@@ -142,7 +142,7 @@
             pin.style.background = CATS[p.cat].bg; pin.setAttribute('aria-label', `${p.title}, ${CATS[p.cat].label}${p.big ? ', Headliner' : ''}`); pin.innerHTML = catIcon(p.cat, 15);
             new mapboxgl.Marker({ element: pin }).setLngLat([p.lng, p.lat]).addTo(m);
           });
-          const reveal = () => { if (!el.isConnected) return; if (m.isStyleLoaded()) wrap.classList.add('live'); else giveUp(); };
+          const reveal = () => { if (!el.isConnected) return; if (m.isStyleLoaded() && el.clientHeight > 0) wrap.classList.add('live'); else giveUp(); };
           if (m.areTilesLoaded && m.areTilesLoaded()) reveal(); else m.once('idle', reveal);
           wrap.addEventListener('click', e => { const card = e.target.closest('.picks .pick'); if (card) { const p = PICKS[card.dataset.i]; m.easeTo({ center: [p.lng, p.lat], duration: 600 }); } });
           const tg = wrap.querySelector('.toggle button[data-mode="map"]'); if (tg) tg.addEventListener('click', () => setTimeout(() => m.resize(), 0));
