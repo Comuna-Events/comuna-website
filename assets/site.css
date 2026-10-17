@@ -430,7 +430,8 @@ textarea.field { min-height: 120px; resize: vertical; }
   .foot .social { flex-direction: column; gap: 0; }
 }
 /* live Mapbox map (sits on top of the paper map once it has loaded) */
-.mbmap { position: absolute; inset: 0; z-index: 1; }
+/* .mapwrap prefix outranks mapbox-gl.css (loaded later), whose .mapboxgl-map { position: relative } would collapse the map to 0px tall */
+.mapwrap .mbmap { position: absolute; inset: 0; z-index: 1; }
 .mapwrap.live .paper-map { visibility: hidden; }
 .mapwrap.list .mbmap { display: none; }
 .mbmap .pin { position: absolute; transform: none; }
