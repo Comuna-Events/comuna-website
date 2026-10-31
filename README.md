@@ -15,7 +15,7 @@ Every page is built from the app's own screens and components, so the site feels
 | About | `src/pages/about.html` | Profile screen |
 | Try the app | `src/pages/explore.html` | The app's desktop stage, with the live app in a phone frame |
 | Support | `src/pages/support.html` | Alerts list (FAQ) and the Beta · Feedback sheet (App Store needs a Support URL) |
-| Privacy Policy | `src/pages/privacy.html` | Bottom sheet. **Draft**: needs legal review (App Store needs a Privacy Policy URL) |
+| Privacy Policy | `src/pages/privacy.html` | Bottom sheet (App Store needs a Privacy Policy URL). Not yet reviewed by a lawyer |
 | Terms of Use | `src/pages/terms.html` | Bottom sheet. **Draft**: needs legal review |
 | 404 | `src/pages/404.html` | Stamp modal |
 
@@ -39,8 +39,10 @@ read submissions in Supabase under Table Editor → `site_messages`.
 
 ## Before the App Store launch
 
-- [ ] Have the Privacy Policy and Terms reviewed, fill in the `[bracketed]` details, and remove the draft notices.
-- [ ] Add a real support email on the Support, Privacy and Terms pages.
+- [x] Privacy Policy: details filled in (run by Corrie Pickering as an individual; corrie@wearecomuna.com).
+- [ ] Have the Privacy Policy and Terms reviewed by a lawyer, and update both when the LLC is formed.
+- [ ] Terms: fill in the `[bracketed]` details and remove the draft notice.
+- [ ] Add a support email on the Support and Terms pages.
 - [ ] Add the App Store ID to the `apple-itunes-app` meta tag in `src/layout.html` (shows Safari's "Open in app" banner).
 - [ ] For links that open the app (Universal Links), add `.well-known/apple-app-site-association` with the app's Team ID and bundle ID.
 - [ ] Add App Store / "Download" buttons where it says "Try the demo".
