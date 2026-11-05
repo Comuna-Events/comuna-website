@@ -14,9 +14,9 @@ Every page is built from the app's own screens and components, so the site feels
 | For Hosts | `src/pages/for-hosts.html` | Host portal (dark screen) plus an application form |
 | About | `src/pages/about.html` | Profile screen |
 | Try the app | `src/pages/explore.html` | The app's desktop stage, with the live app in a phone frame |
-| Support | `src/pages/support.html` | Alerts list (FAQ) and the Beta · Feedback sheet (App Store needs a Support URL) |
+| Support | `src/pages/support.html` | Alerts list (FAQ) and the Feedback sheet (App Store needs a Support URL) |
 | Privacy Policy | `src/pages/privacy.html` | Bottom sheet (App Store needs a Privacy Policy URL). Not yet reviewed by a lawyer |
-| Terms of Use | `src/pages/terms.html` | Bottom sheet. **Draft**: needs legal review |
+| Terms of Use | `src/pages/terms.html` | Bottom sheet. Not yet reviewed by a lawyer |
 | 404 | `src/pages/404.html` | Stamp modal |
 
 The map, pins, pick cards and calendar are drawn by `assets/site.js`, ported from the app. The events on the
