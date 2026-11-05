@@ -7,18 +7,22 @@
 
   const C = { paper: '#F3E7D1', card: '#FBF6EA', ink: '#26251F', green: '#244D3A', red: '#C9533D', sun: '#D6A638', blue: '#4B66A8' };
   const CATS = {
-    shows:   { label: 'Shows & Nightlife',   bg: '#4B66A8', fg: '#F3E7D1', ex: 'concerts, comedy, movies, DJ nights' },
-    food:    { label: 'Food & Markets',      bg: '#C9533D', fg: '#F3E7D1', ex: 'tastings, food festivals, farmers and flea markets' },
-    active:  { label: 'Active & Outdoors',   bg: '#244D3A', fg: '#F3E7D1', ex: 'run clubs, yoga, hikes, pickup games' },
-    classes: { label: 'Classes & Community', bg: '#D6A638', fg: '#26251F', ex: 'workshops, talks, meetups, neighborhood events' }
-  };
-  const CAT_ICON = {
-    shows: '<path d="M4 6.5h16a1.5 1.5 0 0 1 1.5 1.5v1.6a2.4 2.4 0 0 0 0 4.8V16a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 16v-1.6a2.4 2.4 0 0 0 0-4.8V8A1.5 1.5 0 0 1 4 6.5z"/><path d="M12 8.9v0M12 12v0M12 15.1v0" stroke-width="1.7"/>',
-    food: '<path d="M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 22V2c-2.5 1-4 3.5-4 7v4h4"/>',
-    active: '<path d="M7 2c1.7 0 2.7 2.2 2.7 4.9 0 2.6-1 4.6-2.7 4.6S4.3 9.5 4.3 6.9C4.3 4.2 5.3 2 7 2z"/><path d="M5.6 13.9h2.8v1.8a1.4 1.4 0 0 1-2.8 0z"/><g transform="translate(9.6 4)"><path d="M7 2c1.7 0 2.7 2.2 2.7 4.9 0 2.6-1 4.6-2.7 4.6S4.3 9.5 4.3 6.9C4.3 4.2 5.3 2 7 2z"/><path d="M5.6 13.9h2.8v1.8a1.4 1.4 0 0 1-2.8 0z"/></g>',
-    classes: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>'
-  };
-  const catIcon = (k, s, c = CATS[k].fg) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CAT_ICON[k]}</svg>`;
+  food:      { label:'Food & Drink',         short:'Food',    bg:'#C9533D', fg:'#F3E7D1', ex:'tastings, food festivals, supper clubs, wine nights' },
+  shows:      { label:'Arts & Entertainment', short:'Arts',    bg:'#4B66A8', fg:'#F3E7D1', ex:'concerts, comedy, movies, galleries, DJ nights' },
+  classes:   { label:'Classes & Workshops',  short:'Classes', bg:'#D6A638', fg:'#26251F', ex:'workshops, classes, talks, author readings' },
+  active:    { label:'Active & Outdoors',    short:'Active',  bg:'#244D3A', fg:'#F3E7D1', ex:'run clubs, yoga, hikes, pickup games' },
+  markets:   { label:'Markets & Shopping',   short:'Markets', bg:'#26251F', fg:'#F3E7D1', ex:'farmers markets, flea markets, makers fairs' },
+  community: { label:'Community & Social',   short:'Social',  bg:'#E08A6E', fg:'#26251F', ex:'meetups, neighborhood festivals, volunteering' }
+};
+  const CAT_ICON={
+  food:'<path d="M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 22V2c-2.5 1-4 3.5-4 7v4h4"/>',
+  shows:'<path d="M4 6.5h16a1.5 1.5 0 0 1 1.5 1.5v1.6a2.4 2.4 0 0 0 0 4.8V16a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 16v-1.6a2.4 2.4 0 0 0 0-4.8V8A1.5 1.5 0 0 1 4 6.5z"/><path d="M12 8.9v0M12 12v0M12 15.1v0" stroke-width="1.7"/>',
+  classes:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>',
+  active:'<path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/>',
+  markets:'<path d="M4.5 8h15l-1.1 12.5a1.5 1.5 0 0 1-1.5 1.4H7.1a1.5 1.5 0 0 1-1.5-1.4z"/><path d="M8.8 10.5V6.4a3.2 3.2 0 0 1 6.4 0v4.1"/>',
+  community:'<path d="M12 .8v2.4M7 2.6l1.3 1.9M17 2.6l-1.3 1.9" stroke-width="2"/><g fill="currentColor" stroke="none"><circle cx="12" cy="9" r="3.4"/><path d="M5.8 22.5v-2.1a5.1 5.1 0 0 1 5.1-5.1h2.2a5.1 5.1 0 0 1 5.1 5.1v2.1z"/><circle cx="4.6" cy="11.4" r="2.5"/><path d="M0 20.6v-1.2a3.6 3.6 0 0 1 3.6-3.6h2.6a6.8 6.8 0 0 0-1.6 4.4v.4z"/><circle cx="19.4" cy="11.4" r="2.5"/><path d="M24 20.6v-1.2a3.6 3.6 0 0 0-3.6-3.6h-2.6a6.8 6.8 0 0 1 1.6 4.4v.4z"/></g>'
+};
+  const catIcon = (k, s, c = CATS[k].fg) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" color="${c}" stroke="${c}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CAT_ICON[k]}</svg>`;
   const catDot = (k, d) => `<span class="catdot" style="width:${d}px;height:${d}px;background:${CATS[k].bg}">${catIcon(k, Math.round(d * .56))}</span>`;
   const vCheck = s => `<svg class="vcheck" width="${s}" height="${s}" viewBox="0 0 24 24" aria-label="Verified"><circle cx="12" cy="12" r="11" fill="${C.blue}"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const omark = (size, ring = C.sun, dot = C.red) => { const r = size / 2, sw = Math.max(2, size * .085); return `<svg width="${size}" height="${size}" viewBox="${-r} ${-r} ${size} ${size}" aria-hidden="true"><circle r="${r - sw / 2}" fill="none" stroke="${ring}" stroke-width="${sw}"/><circle r="${r * .42}" fill="none" stroke="${ring}" stroke-width="${sw * .8}"/><circle r="${r * .14}" fill="${dot}"/></svg>`; };
@@ -27,7 +31,7 @@
   const ORIGIN = { lat: 34.0869, lng: -118.2702 }; // Silver Lake
   const PICKS = [
     { kind: 'Headliner', cat: 'shows', title: 'Club Nights at Los Globos', venue: 'Los Globos', when: 'Fri · 10 PM', mins: 3, lat: 34.0838, lng: -118.2757, big: true },
-    { kind: 'Staple', cat: 'classes', title: 'Wednesday Trivia at 33 Taps', venue: '33 Taps Silver Lake', when: 'Wed · 8 PM', mins: 3, lat: 34.0893, lng: -118.2795 },
+    { kind: 'Staple', cat: 'community', title: 'Wednesday Trivia at 33 Taps', venue: '33 Taps Silver Lake', when: 'Wed · 8 PM', mins: 3, lat: 34.0893, lng: -118.2795 },
     { kind: 'Hidden Gem', cat: 'shows', title: 'Music and DJs at Tenants of the Trees', venue: 'Tenants of the Trees', when: 'Fri · 9 PM', mins: 3, lat: 34.0957, lng: -118.2732 },
     { kind: 'Pop-up', cat: 'food', title: 'Oktoberfest at Red Lion Tavern', venue: 'Red Lion Tavern', when: 'Today', mins: 5, lat: 34.0990, lng: -118.2610 }
   ];
@@ -40,7 +44,7 @@
     { lat: 34.0806, lng: -118.2436, t: 'park', rx: 1.2, ry: 1.0 }, { lat: 34.1300, lng: -118.2950, t: 'park', rx: 2.2, ry: 1.4 }
   ];
   function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
-  const DOTS = (() => { const R = rng(11), cats = Object.keys(CATS); return Array.from({ length: 22 }, () => ({ lat: ORIGIN.lat + (R() - .5) * .05, lng: ORIGIN.lng + (R() - .5) * .06, cat: cats[Math.floor(R() * 4)] })); })();
+  const DOTS = (() => { const R = rng(11), cats = Object.keys(CATS); return Array.from({ length: 22 }, () => ({ lat: ORIGIN.lat + (R() - .5) * .05, lng: ORIGIN.lng + (R() - .5) * .06, cat: cats[Math.floor(R() * cats.length)] })); })();
 
   const pickCard = (p, i) => `<button class="pick" type="button" data-i="${i}"><div class="n">${catDot(p.cat, 34)}</div>
     <div><div class="when">${p.kind}</div><div class="t">${p.title}${vCheck(14)}</div><div class="m">${p.venue} · ${p.when}</div><div class="m2"><b>${p.when}</b> · ${p.venue}</div></div>
