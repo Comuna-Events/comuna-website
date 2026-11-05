@@ -125,6 +125,10 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 .skiplink { color: var(--cream-muted); font-size: 14px; font-weight: 700; text-decoration: none; align-self: center; padding: 0 10px; }
 .skiplink:hover { color: var(--paper); }
 
+/* Homepage sections use half the usual vertical spacing. */
+.screen.home-section { padding-block: clamp(32px, 4.5vw, 56px); }
+.home-section.onb { padding-top: clamp(20px, 3vw, 36px); }
+
 /* ---------- map (app home, map mode) ---------- */
 .mapwrap { position: relative; height: clamp(520px, 62vh, 640px); border-radius: 26px; overflow: hidden; background: var(--paper-2); margin-top: 30px; box-shadow: 0 1px 0 var(--line); }
 .paper-map { position: absolute; inset: 0; }
