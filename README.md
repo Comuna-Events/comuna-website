@@ -9,7 +9,7 @@ Every page is built from the app's own screens and components, so the site feels
 
 | Page | File | Based on the app's… |
 |---|---|---|
-| Home | `src/pages/index.html` | Onboarding, map (paper map with pins and cards), Top 4, interests, Plans calendar, Passport cover, host portal |
+| Home | `src/pages/index.html` | Welcome screen, hand-drawn map with pins and cards, Tonight in … picks, interests, Plans calendar, Passport cover, host portal |
 | Passport | `src/pages/passport.html` | Passport screen: cover, stamp pages, patches, points, leaderboard |
 | For Hosts | `src/pages/for-hosts.html` | Host portal (dark screen) plus an application form |
 | About | `src/pages/about.html` | Profile screen |
@@ -28,7 +28,13 @@ website map are examples; edit `PICKS` in `assets/site.js` to change them.
 2. Run `python3 build.py`. It writes the finished pages (`index.html`, `about.html`, ...) to the repo root.
 3. Commit and push. GitHub Pages publishes within a minute or two.
 
-Styles live in `assets/site.css` and use the app's design tokens (colors, Big Shoulders Display, DM Sans and Caveat).
+Styles live in `assets/site.css` and use the app's design tokens: the heritage palette, Big Shoulders Display, DM Sans,
+Caveat, and Patrick Hand SC for the map's lettering. `assets/paper/` holds the app's paper grain, passport waves and emblem
+(copies of the app's `stamps/paper-grain.svg`, `passport-waves.svg` and `passport-emblem.svg`).
+
+Some pieces are copied from the app's `index.html` and should be re-copied when the app changes them: `placeStamp()` (the
+passport stamps on the homepage and Passport page, filled from `data-stamp` attributes), and the hand-drawn map
+(`SK`, `handLabel()`, `sketchMapbox()`).
 The demo link is set once in `build.py` (`demo_url`).
 
 ## Forms

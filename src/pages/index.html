@@ -2,9 +2,8 @@
 title: Comuna — Your neighborhood has plans
 description: Explore local events, experiences and pop-ups near you. Comuna puts what's happening close to home on one map, now serving all of Los Angeles County.
 nav: home
-topbar: on-green
 -->
-<!-- onboarding 1 -->
+<!-- onboarding 1 (the app's welcome screen) -->
 <section class="screen home-section onb">
   <div class="wrap cols">
     <div>
@@ -13,13 +12,15 @@ topbar: on-green
       <p class="lede">Explore local events, experiences and pop-ups near you.</p>
       <div class="btns">
         <a class="btn primary" href="{{root}}explore">Get started</a>
-        <a class="skiplink" href="#nearby">See what's nearby ↓</a>
+        <a class="btn ghost" href="#nearby">See what's nearby</a>
       </div>
     </div>
     <div class="stampfield" aria-hidden="true">
-      <div class="s1"><img src="{{root}}assets/stamps/santa-monica-light.png" alt="" width="210" height="210" style="transform:rotate(-8deg)"></div>
-      <div class="s2"><img src="{{root}}assets/stamps/silver-lake-light.png" alt="" width="210" height="210" style="transform:rotate(8deg)"></div>
-      <div class="s3"><img src="{{root}}assets/stamps/west-hollywood-light.png" alt="" width="210" height="210" style="transform:rotate(5deg)"></div>
+      <div class="stamps">
+        <div class="s1" data-stamp="Hollywood Farmers Market|Hollywood|markets" data-days="SUNDAYS" data-area="323" data-rot="-6" data-w="214"></div>
+        <div class="s2" data-stamp="Pasadena Run Club|Pasadena|active" data-days="WEDNESDAYS" data-area="626" data-rot="7" data-w="178"></div>
+        <div class="s3" data-stamp="Drum Circle|Venice Beach|arts" data-days="SAT &amp; SUN" data-area="310" data-rot="3" data-w="214"></div>
+      </div>
       <p class="hand">collect every one</p>
     </div>
   </div>
@@ -50,28 +51,34 @@ topbar: on-green
   </div>
 </section>
 
-<!-- top 4 + map key -->
+<!-- tonight's picks + map key -->
 <section class="screen home-section paper2" id="top4">
   <div class="wrap cols top">
-    <div class="box reveal">
+    <div class="box recbox reveal" data-tonight>
       <div class="grab"></div>
-      <p class="k">Picked for you today</p>
-      <h2 class="h1">Your Top 4 today</h2>
-      <p class="sub">One of each, close to you. New picks every day.</p>
-      <div data-picks></div>
+      <p class="k" data-today>Tonight</p>
+      <h2 class="h1">Tonight in Silver Lake</h2>
+      <p class="recsum">4 picks for tonight.</p>
+      <div class="recmoods" role="group" aria-label="What are you in the mood for?">
+        <button type="button" class="chip on" data-mood="" aria-pressed="true">Anything</button>
+        <button type="button" class="chip" data-mood="chill" aria-pressed="false">Chill</button>
+        <button type="button" class="chip" data-mood="social" aria-pressed="false">Social</button>
+        <button type="button" class="chip" data-mood="late" aria-pressed="false">Out late</button>
+        <button type="button" class="chip" data-mood="cheap" aria-pressed="false">Cheap</button>
+      </div>
+      <div class="reclist"></div>
       <a class="btn green block" href="{{root}}explore" style="margin-top:16px">Explore the map</a>
     </div>
     <div class="reveal">
-      <p class="k">How to read the map</p>
-      <h2 class="h1 sm">Four kinds of good plans.</h2>
-      <div class="legend">
-        <div class="lgrow"><span class="lgico" data-pin="shows" data-big></span><div><b>Headliners</b><span class="d">Big events worth a trip. They get a gold ring on the map.</span></div></div>
-        <div class="lgrow"><span class="lgico"><span class="tierdot">S</span></span><div><b>Staples</b><span class="d">Happening every week or month.</span></div></div>
-        <div class="lgrow"><span class="lgico"><span class="tierdot">G</span></span><div><b>Hidden Gems</b><span class="d">Small and local, easy to miss.</span></div></div>
-        <div class="lgrow"><span class="lgico"><span class="tierdot">P</span></span><div><b>Pop-ups</b><span class="d">One time only, don't miss it.</span></div></div>
-      </div>
-      <h3 class="h2">Pin colors</h3>
+      <p class="k">Picked for you, every day</p>
+      <h2 class="h1 sm">Different picks every day.</h2>
+      <p class="lede" style="margin-top:10px">Each day Comuna picks a few things near you and says why: a weekly favorite, something that just dropped, a last chance. Pick a mood, or tap "Not for me" and it won't come back.</p>
+      <h3 class="h2">The color shows what kind.</h3>
       <div class="lgcats" data-lgcats></div>
+      <div class="legend">
+        <div class="lgrow"><span class="lgico" data-pin="shows" data-big></span><div><b>Gold ring = Headliner</b><span class="d">Big events worth a trip.</span></div></div>
+        <div class="lgrow"><span class="lgico"><span class="cluster">12</span></span><div><b>Numbers are groups</b><span class="d">Tap to zoom in.</span></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -95,8 +102,8 @@ topbar: on-green
       <p class="k">Plans</p>
       <h2 class="h1">Save it. Bring people. Go.</h2>
       <ol class="kitsteps">
-        <li><div><b>Tap "Interested"</b><span>Anything on the map lands in your Plans calendar.</span></div></li>
-        <li><div><b>Invite your people</b><span>Send the plan to friends. Their invites show up here too.</span></div></li>
+        <li><div><b>Tap "Save"</b><span>Anything on the map lands in your Plans calendar.</span></div></li>
+        <li><div><b>Invite your people</b><span>Send the plan to friends. Their invites land under Invites from friends.</span></div></li>
         <li><div><b>Check in when you arrive</b><span>Show up, check in, and get the stamp.</span></div></li>
       </ol>
     </div>
@@ -104,7 +111,7 @@ topbar: on-green
       <div class="calhead"><div class="m">Month</div><button type="button" data-prev aria-label="Previous month">&lsaquo;</button><button type="button" data-today>Today</button><button type="button" data-next aria-label="Next month">&rsaquo;</button></div>
       <div class="calgrid"></div>
       <div class="dayhead"></div>
-      <div class="empty"><span class="hand">free tonight?</span>Nothing saved for this day yet. Tap "Interested" on an event and it lands here.</div>
+      <div class="empty"><span class="hand">free tonight?</span>Nothing saved for this day yet. Tap "Save" on an event and it lands here.</div>
     </div>
   </div>
 </section>
@@ -114,17 +121,17 @@ topbar: on-green
   <div class="wrap cols">
     <div class="reveal">
       <div class="passhead"><p class="h1" style="margin:0">Passport</p><img src="{{root}}assets/patches/pennant.webp" alt="Comuna Events pennant"></div>
-      <p class="lede">Every check-in earns a stamp for the neighborhood. Keep exploring to unlock patches, climb the monthly leaderboard and fill your passport.</p>
+      <p class="lede">Every check-in earns a stamp for the neighborhood. Keep exploring to unlock patches, climb your neighborhood's leaderboard and fill your passport.</p>
       <div class="btns"><a class="btn green" href="{{root}}passport">Open your passport</a></div>
     </div>
     <div class="reveal">
       <div class="passcover">
-        <span class="seal" aria-hidden="true"><svg width="150" height="150" viewBox="-75 -75 150 150"><circle r="70" fill="none" stroke="#F3E7D1" stroke-width="10"/><circle r="32" fill="none" stroke="#F3E7D1" stroke-width="8"/><circle r="11" fill="#F3E7D1"/></svg></span>
         <p class="k">You · Los Angeles</p>
-        <p class="bigc">5 places, 3 neighborhoods</p>
-        <div class="bar"><i style="width:38%"></i></div>
-        <div class="passstats"><div><b>2</b>patches</div><div><b>7</b>check-ins</div><div><b>820</b>points this month</div></div>
+        <p class="bigc">5 places<br>3 neighborhoods<br>1 city</p>
+        <div class="passstats"><div><b>7</b>check-ins</div><div><b>820</b>points</div></div>
+        <span class="seal" aria-hidden="true"><svg width="130" height="130" viewBox="-65 -65 130 130" overflow="visible"><circle r="59.5" fill="none" stroke="#F3EBDD" stroke-width="11"/><circle r="27.3" fill="none" stroke="#F3EBDD" stroke-width="8.8"/><circle r="9.1" fill="#F3EBDD"/></svg></span>
       </div>
+      <p class="passhow">Check in to collect stamps &amp; climb your neighborhood's board.</p>
       <div class="patches" style="margin-top:14px">
         <div class="patch"><img src="{{root}}assets/patches/first-stamp.webp" alt=""><b>FIRST STAMP</b>WELCOME</div>
         <div class="patch"><img src="{{root}}assets/patches/three-hoods.webp" alt=""><b>THREE HOODS</b>EXPLORER</div>
