@@ -24,17 +24,16 @@
 </main>
 <script>
 /* Friend invite links (https://www.wearecomuna.com/i/?c=CODE, made by the app's Invite button) land here and go straight
-   on: iPhone to the App Store, Android to Google Play, anything else to the web app with the invite. Nothing to read or
-   fill in here: the invite is answered in Comuna. Until a store link is filled in below, that phone gets the web app.
-   Once someone has the app, they paste the link in Plans (or, after universal links are set up, it opens the app). */
+   on: iPhone to the App Store, anything else (Android included, until the app is on Google Play) to the web app with the
+   invite. Nothing to read or fill in here: the invite is answered in Comuna. Once someone has the app, they paste the
+   link in Plans (or, after universal links are set up, it opens the app). */
 (function(){
-  var IOS_STORE='';       // the App Store page, e.g. https://apps.apple.com/app/id0000000000
-  var ANDROID_STORE='';   // e.g. https://play.google.com/store/apps/details?id=com.wearecomuna.app
+  var IOS_STORE='https://apps.apple.com/app/id6827741819';   // Comuna: Neighborhood Events
   var WEB_APP='https://comuna-events.github.io/Comuna-app/';
   var m=location.search.match(/[?&]c=([0-9a-f]{12})\b/i), code=m? m[1].toLowerCase() : '';
   var web=WEB_APP+(code? '?invite='+code : ''), ua=navigator.userAgent;
-  var ios=/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints>1), android=/Android/.test(ua);
-  var to= ios && IOS_STORE? IOS_STORE : android && ANDROID_STORE? ANDROID_STORE : web;
+  var ios=/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints>1);
+  var to= ios? IOS_STORE : web;
   document.getElementById('go').href=to;
   if(!code) document.getElementById('msg').textContent="This invite link looks incomplete. Ask your friend to send it again.";
   location.replace(to);
