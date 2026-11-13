@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["VYR3BRZG5Q.com.wearecomuna.app"],
+        "components": [
+          { "/": "/i/*", "comment": "Friend invite links open the Comuna app (Comuna-app: native.js, IOS.md)" },
+          { "/": "/i", "comment": "the same, without the trailing slash" }
+        ]
+      }
+    ]
+  }
+}
