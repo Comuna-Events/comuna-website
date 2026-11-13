@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Comuna invite</title>
+<meta property="og:title" content="You're invited on Comuna">
+<meta property="og:description" content="A friend invited you to something nearby. Get Comuna to answer and see who's coming.">
+<meta property="og:image" content="https://www.wearecomuna.com/assets/img/og.jpg">
+<style>
+  :root{ --paper:#F3EBDD; --ink:#353A32; --green:#315C49; --muted:#6B6E64 }
+  body{ margin:0; min-height:100vh; display:grid; place-items:center; background:var(--paper); color:var(--ink);
+    font-family:system-ui,-apple-system,'Segoe UI',sans-serif; text-align:center; padding:24px; box-sizing:border-box }
+  b{ display:block; font-size:28px; letter-spacing:.04em; color:var(--green); margin-bottom:8px }
+  a{ color:var(--green) } p{ color:var(--muted); line-height:1.5 }
+</style>
+</head>
+<body>
+<main>
+  <b>COMUNA</b>
+  <p id="msg">Opening your invite…</p>
+  <p><a id="go" href="https://comuna-events.github.io/Comuna-app/">Open Comuna</a></p>
+</main>
+<script>
+/* Friend invite links (https://www.wearecomuna.com/i/?c=CODE, made by the app's Invite button) land here and go straight
+   on: iPhone to the App Store, Android to Google Play, anything else to the web app with the invite. Nothing to read or
+   fill in here: the invite is answered in Comuna. Until a store link is filled in below, that phone gets the web app.
+   Once someone has the app, they paste the link in Plans (or, after universal links are set up, it opens the app). */
+(function(){
+  var IOS_STORE='';       // the App Store page, e.g. https://apps.apple.com/app/id0000000000
+  var ANDROID_STORE='';   // e.g. https://play.google.com/store/apps/details?id=com.wearecomuna.app
+  var WEB_APP='https://comuna-events.github.io/Comuna-app/';
+  var m=location.search.match(/[?&]c=([0-9a-f]{12})\b/i), code=m? m[1].toLowerCase() : '';
+  var web=WEB_APP+(code? '?invite='+code : ''), ua=navigator.userAgent;
+  var ios=/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints>1), android=/Android/.test(ua);
+  var to= ios && IOS_STORE? IOS_STORE : android && ANDROID_STORE? ANDROID_STORE : web;
+  document.getElementById('go').href=to;
+  if(!code) document.getElementById('msg').textContent="This invite link looks incomplete. Ask your friend to send it again.";
+  location.replace(to);
+})();
+</script>
+</body>
+</html>
